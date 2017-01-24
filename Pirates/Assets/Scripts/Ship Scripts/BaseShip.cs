@@ -19,7 +19,7 @@ public class BaseShip : ShipMovement {
 		float dist = Vector3.Magnitude (transform.position - target.transform.position);
 		if(dist > .1f)
 			ultForce = Seek (target.transform.position) +
-				ObstacleAvoid () * 2;
+				ObstacleAvoid () * 5;
 		if (dist < destinationDist) {
 			Vector3 slowVel = velocity.normalized*mag;
 			velocity = (slowVel-slowVel*((destinationDist-dist)/destinationDist));

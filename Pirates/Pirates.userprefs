@@ -2,9 +2,9 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Ship Scripts\BaseShip.cs">
     <Files>
-      <File FileName="Assets\Scripts\IslandProperties.cs" Line="31" Column="27" />
-      <File FileName="Assets\Scripts\Ship Scripts\ShipMovement.cs" Line="52" Column="38" />
-      <File FileName="Assets\Scripts\Ship Scripts\BaseShip.cs" Line="19" Column="10" />
+      <File FileName="Assets\Scripts\IslandProperties.cs" Line="24" Column="22" />
+      <File FileName="Assets\Scripts\Ship Scripts\ShipMovement.cs" Line="106" Column="5" />
+      <File FileName="Assets\Scripts\Ship Scripts\BaseShip.cs" Line="22" Column="25" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
