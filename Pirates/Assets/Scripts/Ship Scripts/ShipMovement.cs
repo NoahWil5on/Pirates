@@ -35,6 +35,7 @@ public abstract class ShipMovement : MonoBehaviour {
 		CalculateSteering ();
 
 		velocity += acceleration*Time.deltaTime;
+		velocity = Vector3.ClampMagnitude (velocity, maxSpeed);
 		position += velocity*Time.deltaTime;
 		UpdateTransformation ();
 
@@ -44,13 +45,13 @@ public abstract class ShipMovement : MonoBehaviour {
 		acceleration += force / mass;
 	}
 	void UpdateTransformation(){
-		if (velocity.sqrMagnitude < .05f)
-			return;
+		/*if (velocity.sqrMagnitude < .05f)
+			return;*/
 		transform.position = position;
 		transform.forward = Vector3.Lerp(transform.forward,velocity.normalized,.03f);
 	}
 	public Vector3 Seek(Vector3 target){
-		return ((target-position)-velocity*5).normalized * maxSpeed;
+		return ((target-position)-velocity).normalized * maxSpeed;
 	}
 	public Vector3 ObstacleAvoid(){
 		obstacles = GameObject.FindGameObjectsWithTag("Obstacle");
@@ -101,6 +102,8 @@ public abstract class ShipMovement : MonoBehaviour {
 		return (velocity.normalized * -1) * coefficient;
 	}
 	void OnRenderObject(){
+		if (!debug)
+			return;
 		green.SetPass (0);
 		GL.Begin (GL.LINES);
 		GL.Vertex (position);
