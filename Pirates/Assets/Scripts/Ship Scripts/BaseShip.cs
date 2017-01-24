@@ -11,9 +11,12 @@ public class BaseShip : ShipMovement {
 	{
 		target = GameObject.Find ("Target");
 		ultForce = Vector3.zero;
-
-		ultForce = Seek(target.transform.position) +
-			ObstacleAvoid()*2;
+		if (Vector3.SqrMagnitude (transform.position - target.transform.position) < Mathf.Pow (destinationDist, 2)) {
+			ultForce = Friction(target, 10);
+			return;
+		}
+		ultForce = Seek (target.transform.position) +
+			ObstacleAvoid () * 2;
 		ultForce = Vector3.ClampMagnitude (ultForce, maxSpeed);
 
 		ApplyForce (ultForce);
