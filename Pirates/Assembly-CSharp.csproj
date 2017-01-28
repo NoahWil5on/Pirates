@@ -51,6 +51,7 @@
      <Compile Include="Assets\Scripts\PathFinding.cs" />
      <Compile Include="Assets\Scripts\Ship Scripts\BaseShip.cs" />
      <Compile Include="Assets\Scripts\Ship Scripts\ShipMovement.cs" />
+     <Compile Include="Assets\Scripts\Ship Scripts\ShipSeeker.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

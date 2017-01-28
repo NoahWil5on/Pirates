@@ -20,11 +20,10 @@ public abstract class ShipMovement : MonoBehaviour {
 	public Material green;
 	public bool debug;
 	// Use this for initialization
-	void Start () {
+	public virtual void Start () {
 		dangerO = new List<GameObject> ();
 		velocity = Vector3.zero;
 		acceleration = Vector3.zero;
-
 	}
 	public virtual void CalculateSteering(){
 

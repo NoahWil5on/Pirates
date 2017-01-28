@@ -14,10 +14,17 @@ public class Grid : MonoBehaviour {
 	int gridSizeX, gridSizeY;
 	float nodeDiameter;
 	float nodeRadius;
-
+	public List<Node> path;
+	Vector3 current;
 	//Node active;
 
+	//properties
+	public Vector3 Next{ get { return (path.Count > 0) ? path [0].Position : current; } }
+	//public Node Next{ get { return path [1]; } }
+
 	void Start(){
+		current = Vector3.zero;
+		path = new List<Node> ();
 		nodeDiameter = gridSpacing;
 		nodeRadius = nodeDiameter / 2;
 		gridSizeX = Mathf.RoundToInt (gridWorldSize.x/nodeDiameter);
@@ -25,6 +32,7 @@ public class Grid : MonoBehaviour {
 		CreateGrid ();
 	}
 	void Update(){
+		print (path.Count);
 		//active = NodeFromWorldPoint (GameObject.Find ("Player").transform.position);
 	}
 	void CreateGrid(){
@@ -69,7 +77,7 @@ public class Grid : MonoBehaviour {
 		}
 		return neighbors;
 	}
-	public List<Node> path;
+
 	void OnDrawGizmos(){
 		Gizmos.DrawWireCube (transform.position, new Vector3 (gridWorldSize.x, 1, gridWorldSize.y));
 		if (grid != null) {
@@ -77,6 +85,10 @@ public class Grid : MonoBehaviour {
 			foreach(Node n in grid){
 				Gizmos.color = (n.Walkable) ? Color.white : Color.red;
 				Gizmos.color = (n == active) ? Color.green : Gizmos.color;
+				if(n == active){
+					Gizmos.color = Color.green;
+					current = n.Position;
+				}
 				if(path != null)
 					if(path.Contains(n))
 						Gizmos.color = Color.blue;
