@@ -47,7 +47,8 @@ public abstract class ShipMovement : MonoBehaviour {
 		/*if (velocity.sqrMagnitude < .05f)
 			return;*/
 		transform.position = position;
-		transform.forward = Vector3.Lerp(transform.forward,velocity.normalized,.03f);
+		transform.forward = Vector3.Lerp(transform.forward,velocity.normalized,.1f);
+		transform.forward = new Vector3 (transform.forward.x, 0, transform.forward.z);
 	}
 	public Vector3 Seek(Vector3 target){
 		return ((target-position)-velocity).normalized * maxSpeed;

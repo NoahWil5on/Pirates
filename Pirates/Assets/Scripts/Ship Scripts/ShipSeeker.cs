@@ -4,7 +4,7 @@ using System.Collections;
 public class ShipSeeker : ShipMovement {
 
 	Vector3 ultForce;
-	public GameObject display;
+	//public GameObject display;
 	Grid grid;
 
 	public override void Start(){
@@ -15,8 +15,8 @@ public class ShipSeeker : ShipMovement {
 
 	public override void CalculateSteering(){
 		ultForce = Vector3.zero;
-		ultForce += Seek (grid.Next);
-		display.transform.position = grid.Next;
+		ultForce += Seek (new Vector3(grid.Next.x,transform.position.y,grid.Next.z));
+		//display.transform.position = grid.Next;
 		ApplyForce (ultForce);
 	}
 }

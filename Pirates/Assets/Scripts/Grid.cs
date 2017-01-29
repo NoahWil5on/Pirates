@@ -19,7 +19,22 @@ public class Grid : MonoBehaviour {
 	//Node active;
 
 	//properties
-	public Vector3 Next{ get { return (path.Count > 0) ? path [0].Position : current; } }
+	//public Vector3 Next{ get { return (path.Count > 1) ? path [1].Position : current; } }
+	public Vector3 Next {
+		get {
+			switch (path.Count) {
+			case 1:
+				return path[0].Position;
+				break;
+			case 0:
+				return GameObject.Find("SeekTarget").transform.position;
+				break;
+			default:
+				return path[1].Position;
+				break;
+			}
+		}
+	}
 	//public Node Next{ get { return path [1]; } }
 
 	void Start(){
